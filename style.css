@@ -348,7 +348,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
     padding-top: 68px;
     /* FIX: Added padding-bottom so the absolute scroll indicator
        doesn't collide with the hero stats row on mobile */
-    padding-bottom: 4rem;
+    padding-bottom: 6rem;
   }
 
   /* FIX: Hide scroll indicator on mobile — it is position:absolute and
