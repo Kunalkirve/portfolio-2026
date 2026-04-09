@@ -265,10 +265,10 @@
         this.y = pos.y;
 
         // Gentle random velocity
-        const speed = 0.4 + Math.random() * 0.7;
+        const speed = 2.0 + Math.random() * 1.0;
         const angle = Math.random() * Math.PI * 2;
         this.vx = Math.cos(angle) * speed;
-        this.vy = Math.sin(angle) * speed - 0.25; // slight upward drift
+        this.vy = Math.sin(angle) * speed - 0.6; // slight upward drift
 
         this.paused    = false;
         this.bursting  = false;
