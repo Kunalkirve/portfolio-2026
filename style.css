@@ -346,8 +346,16 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
     min-height: calc(100dvh - 52px);
     max-height: none;
     padding-top: 68px;
-    max-height: none;
-    padding-bottom: 0;
+    /* FIX: Added padding-bottom so the absolute scroll indicator
+       doesn't collide with the hero stats row on mobile */
+    padding-bottom: 4rem;
+  }
+
+  /* FIX: Hide scroll indicator on mobile — it is position:absolute and
+     with hero height:auto it overlaps the stats row. On mobile, swipe
+     is intuitive so the indicator is not needed. */
+  .scroll-indicator {
+    display: none;
   }
 }
 
@@ -469,7 +477,11 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 
 .hero-visual {
   position: relative;
-  z-index: 4;
+  /* FIX: Raised from z-index 4 to 20. hero-content was z-index 10 which capped
+     the entire hero-visual stacking context, making bubbles (z-index 5 inside it)
+     always paint behind the text. Now the whole visual stacking context is above
+     the text so floating bubbles correctly appear in front of all content. */
+  z-index: 20;
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -1452,6 +1464,3 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   .grain-overlay, .cursor-dot, .cursor-ring,
   .orb, .hero-grid, .scroll-indicator { display: none; }
 }
-
-
-
